@@ -6,14 +6,14 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 const cors = require('cors');
-io.use(cors({ origin: 'http://localhost:3000' }));
+io.use(cors({ origin: '*' }));
 
 
 app.get('/', (req, res) => {
   res.send('Forbidden')
 });
 
-io.on('connection', (socket) => {
+io.on('connection', cors({ origin: '*' }), (socket) => {
   console.log('a user connected');
 });
 

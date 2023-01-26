@@ -6,7 +6,8 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 const cors = require('cors');
-io.use(cors({ origin: '*' }));
+io.use(cors({ origin: 'http://localhost:3000' }));
+
 
 app.get('/', (req, res) => {
   res.send('Forbidden')

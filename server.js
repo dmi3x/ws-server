@@ -8,12 +8,13 @@ const io = new Server(server);
 const cors = require('cors');
 io.use(cors({ origin: '*' }));
 
+app.use(cors({ origin: '*' }));
 
 app.get('/', (req, res) => {
   res.send('Forbidden')
 });
 
-io.on('connection', cors({ origin: '*' }), (socket) => {
+io.on('connection', (socket) => {
   console.log('a user connected');
 });
 
